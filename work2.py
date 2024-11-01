@@ -176,14 +176,24 @@ if boys >= girls:
     n = boys
 else:   
     n = girls
-
+                      
 if boys == girls:
     answer = "BG"*n       
-elif boys - girls == 1 or girls - boys == 1:
-    if boys > girls:
-        answer = "BG"*girls+"B"
+elif boys - girls == 1:               
+    answer = "BG"*girls+"B"
+    
+elif boys - girls == 2 and girls > 1:                
+    if girls%2 == 0:
+        answer = "BGB"*girls  
     else:
-        answer = "GB"*boys+"G"
-else:
+        answer = "BGB"*(girls-1)+"BG"      
+elif girls - boys == 1:
+    answer = "GB"*boys+"G"
+elif girls - boys >= 2:    
+    if girls%2 == 0:
+        answer = "GBG"*boys   
+    else:
+        answer = "BGG"*(boys-1)+"BG"
+else:        
     print("Нет решения.")
-print(answer)     
+print(answer)                    
